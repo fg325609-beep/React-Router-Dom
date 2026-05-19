@@ -1,0 +1,195 @@
+// Ranglar (Yaxlitlikni saqlash uchun)
+$primary-color: #3498db;
+$dark-color: #2c3e50;
+$white-color: #ffffff;
+$gray-color: #7f8c8d;
+$light-bg: #f8f9fa;
+$border-color: #ddd;
+$transition-smooth: all 0.3s ease;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  animation: fadeIn 0.5s ease-in-out;
+
+  // Sarlavha
+  &__hero {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 36px;
+    color: $dark-color;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: 17px;
+    color: $gray-color;
+    line-height: 1.6;
+  }
+
+  // Ikki ustunli qism (Grid)
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; // Chap tomon kichikroq, o'ng tomon kengroq
+    gap: 40px;
+    align-items: start;
+  }
+
+  // Kontakt ma'lumotlari (Chap tomon)
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: $light-bg;
+    padding: 30px;
+    border-radius: 10px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      h3 {
+        font-size: 16px;
+        color: $dark-color;
+        margin: 0 0 4px 0;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 14px;
+        color: $gray-color;
+        margin: 0;
+      }
+    }
+
+    &-icon {
+      font-size: 24px;
+      background-color: $white-color;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  // Aloqa formasi (O'ng tomon)
+  &__form {
+    background-color: $white-color;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-size: 14px;
+        color: $dark-color;
+        font-weight: 500;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        font-size: 15px;
+        color: $dark-color;
+        outline: none;
+        transition: $transition-smooth;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.1); // Fokus bo'lganda yengil ko'k hoshiya
+        }
+      }
+
+      textarea {
+        resize: vertical; // Faqat bo'yiga cho'ziladigan qilish
+      }
+    }
+
+    // Headerdagi submit tugmasi bilan bir xil uslubda
+    &-btn {
+      background-color: $primary-color;
+      color: $white-color;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: $transition-smooth;
+      align-self: flex-start; // Tugmani chapga tekislash
+      box-shadow: 0 4px 6px rgba($primary-color, 0.2);
+
+      &:hover {
+        background-color: darken($primary-color, 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba($primary-color, 0.25);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Animatsiya
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mobil qurilmalar (Responsive)
+@media (max-width: 992px) {
+  .contact {
+    &__content {
+      grid-template-columns: 1fr; // Ekran kichrayganda ustunlar ketma-ket joylashadi
+      gap: 30px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    gap: 35px;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__form {
+      padding: 20px;
+      
+      &-btn {
+        width: 100%; // Mobil telefonda tugma to'liq kenglikni egallaydi
+        text-align: center;
+      }
+    }
+  }
+}

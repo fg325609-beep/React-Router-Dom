@@ -1,0 +1,132 @@
+// Ranglar (Header va Footer bilan bir xil)
+$primary-color: #3498db;
+$dark-color: #2c3e50;
+$white-color: #ffffff;
+$gray-color: #7f8c8d;
+$light-bg: #f8f9fa;
+$transition-smooth: all 0.3s ease;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  animation: fadeIn 0.5s ease-in-out; // Sahifa ochilgandagi yengil effekt
+
+  // 1. Hero Qismi
+  &__hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 36px;
+    color: $dark-color;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    color: $gray-color;
+    line-height: 1.6;
+  }
+
+  // 2. Kartalar qismi (Grid)
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  &__card {
+    background-color: $white-color;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: $transition-smooth;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba($primary-color, 0.1);
+      border-color: rgba($primary-color, 0.2);
+    }
+
+    &-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    &-title {
+      font-size: 20px;
+      color: $dark-color;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    &-text {
+      font-size: 15px;
+      color: $gray-color;
+      line-height: 1.5;
+    }
+  }
+
+  // 3. Statistika qismi
+  &__stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: $light-bg;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__stat-number {
+    font-size: 32px;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  &__stat-label {
+    font-size: 15px;
+    color: $dark-color;
+    font-weight: 500;
+  }
+}
+
+// Sahifa yuklanganda chiroyli paydo bo'lish animatsiyasi
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Mobil qurilmalar uchun moslashuvchanlik
+@media (max-width: 768px) {
+  .about {
+    gap: 40px;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+    }
+
+    &__stats {
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Brauzer oynasining bo'yini to'liq egallaydi
+}
+
+.main-content {
+  flex: 1; // Sahifa bo'sh bo'lsa ham Footer-ni eng pastga itarib turadi
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;      // Kontentni o'rtaga tekislaydi
+  padding: 40px 20px;  // Sahifalar chetga va tepaga yopishib qolmasligi uchun yostiqcha (padding)
+  box-sizing: border-box;
+}

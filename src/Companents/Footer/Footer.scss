@@ -1,0 +1,125 @@
+// Header bilan bir xil o'zgaruvchilar (Bir xillikni ushlab turish uchun)
+$primary-color: #3498db;
+$dark-color: #2c3e50;
+$white-color: #ffffff;
+$gray-color: #7f8c8d;
+$transition-smooth: all 0.3s ease;
+
+.footer {
+  background-color: $white-color;
+  border-top: 1px solid rgba(0, 0, 0, 0.05); // Tepasidan yengil chiziq
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); // Yuqoriga qaratilgan yengil soya
+  width: 100%;
+  margin-top: auto; // Agar sahifa bo'sh bo'lsa, footerni pastga itaradi
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; // Mobil qurilmalarda elementlar pastga tushishi uchun
+    gap: 20px;
+  }
+
+  &__info {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  &__logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: $dark-color;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+  }
+
+  &__text {
+    color: $gray-color;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 250px;
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 200px;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $dark-color;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: $transition-smooth;
+
+    // Header dagi kabi hover chizig'i effekti
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $primary-color;
+      transition: $transition-smooth;
+    }
+
+    &:hover {
+      color: $primary-color;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__copyright {
+    flex: 1;
+    text-align: right;
+    min-width: 200px;
+    color: $gray-color;
+    font-size: 14px;
+  }
+}
+
+// Mobil qurilmalar (Telefonlar) uchun moslashuvchanlik
+@media (max-width: 768px) {
+  .footer {
+    &__container {
+      flex-direction: column; // Elementlar ketma-ket pastga tushadi
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    &__info, &__nav, &__copyright {
+      text-align: center;
+      justify-content: center;
+    }
+
+    &__text {
+      margin: 0 auto;
+    }
+
+    &__list {
+      flex-direction: column; // Menyular ham pastma-past tushadi
+      gap: 15px;
+    }
+  }
+}
